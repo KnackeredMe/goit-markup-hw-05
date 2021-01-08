@@ -3,6 +3,7 @@
   --heading-font-color: #212121;
   --accent-color: #2196f3;
   --white-color: #ffffff;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list {
@@ -140,12 +141,14 @@ img {
 }
 
 .site-nav-link {
+  position: relative;
   font-family: Roboto;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.143;
   letter-spacing: 0.02em;
   color: var(--heading-font-color);
+  transition: color 250ms var(--timing-function);
 }
 
 .site-nav-link:hover,
@@ -155,6 +158,18 @@ img {
 
 .current-page {
   color: var(--accent-color);
+}
+
+.current-page::before {
+  bottom: -32px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  display: block;
+  content: " ";
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 .header .logo {
@@ -177,6 +192,7 @@ img {
   line-height: 1.143;
   letter-spacing: 0.02em;
   color: var(--primary-font-color);
+  transition: color 250ms var(--timing-function);
 }
 
 .address-contact-info:hover,
@@ -201,12 +217,14 @@ img {
   width: 18px;
   height: 12px;
   margin-right: 10px;
+  transition: fill 250ms var(--timing-function);
 }
 
 .phone-icon {
   width: 12px;
   height: 16px;
   margin-right: 10px;
+  transition: fill 250ms var(--timing-function);
 }
 
 /* ========HERO======== */
@@ -304,6 +322,34 @@ img {
   align-items: center;
   justify-content: space-between;
 }
+
+.experience-item {
+  position: relative;
+}
+
+.experience-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  height: 70px;
+  width: 100%;
+  text-align: center;
+
+  padding-top: 27px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.experience-label-text {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.142;
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--white-color);
+}
 /* ======OUR_TEAM====== */
 
 .social-links-link {
@@ -313,6 +359,7 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  transition: background-color 250ms var(--timing-function);
 }
 
 .social-links-link:hover,
@@ -339,6 +386,7 @@ img {
   width: 20px;
   height: 20px;
   fill: #afb1b8;
+  transition: fill 2500ms var(--timing-function);
 }
 
 .our-team {
@@ -406,11 +454,14 @@ img {
   justify-content: center;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: border-color 250ms var(--timing-function);
 }
 
 .clients-logo {
   height: 45px;
   fill: #afb1b8;
+  transform: rotateZ(30deg);
+  transition: transform 250ms var(--timing-function);
 }
 
 .clients-list-link:hover,
@@ -418,17 +469,55 @@ img {
   border-color: var(--accent-color);
 }
 
-.clients-list-link:hover .clients-logo,
-.clients-list-link:focus .clients-logo {
+.clients-logo:hover,
+.clients-logo:focus {
   fill: var(--accent-color);
+  transform: rotateZ(0);
 }
 
 /* =====OUR_PROJECTS====== */
+
+.project-img-overlay {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(33, 150, 243, 0.9);
+  padding-left: 24px;
+  padding-right: 24px;
+
+  transform: translateY(100%);
+
+  transition: transform 250ms var(--timing-function);
+}
+
+.project-img-overlay-text {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.556;
+  letter-spacing: 0.03em;
+  color: var(--white-color);
+}
+
+.project-img-thumb {
+  position: relative;
+  overflow: hidden;
+}
 
 .project-link:hover,
 .project-link:focus {
   display: block;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.project-link:hover .project-img-overlay,
+.project-link:focus .project-img-overlay {
+  transform: translateY(0);
 }
 
 .our-projects {
