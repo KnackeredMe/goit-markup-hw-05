@@ -367,8 +367,7 @@ img {
   background-color: var(--accent-color);
 }
 
-.social-links-link:hover .social-link-icon,
-.social-links-link:focus .social-link-icon {
+.social-links-link:hover .social-link-icon {
   fill: var(--white-color);
 }
 
@@ -386,7 +385,7 @@ img {
   width: 20px;
   height: 20px;
   fill: #afb1b8;
-  transition: fill 2500ms var(--timing-function);
+  transition: fill 250ms var(--timing-function);
 }
 
 .our-team {
@@ -460,8 +459,7 @@ img {
 .clients-logo {
   height: 45px;
   fill: #afb1b8;
-  transform: rotateZ(30deg);
-  transition: transform 250ms var(--timing-function);
+  transition: fill 250ms var(--timing-function);
 }
 
 .clients-list-link:hover,
@@ -469,10 +467,9 @@ img {
   border-color: var(--accent-color);
 }
 
-.clients-logo:hover,
-.clients-logo:focus {
+.clients-list-link:focus .clients-logo,
+.clients-list-link:hover .clients-logo {
   fill: var(--accent-color);
-  transform: rotateZ(0);
 }
 
 /* =====OUR_PROJECTS====== */
@@ -513,6 +510,10 @@ img {
 .project-link:focus {
   display: block;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.project-link {
+  transition: box-shadow 250ms var(--timing-function);
 }
 
 .project-link:hover .project-img-overlay,
@@ -570,6 +571,9 @@ img {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
+  transition: background-color 250ms var(--timing-function),
+    color 250ms var(--timing-function);
 }
 
 .filter-buttons-item:not(:last-child) {
@@ -658,6 +662,7 @@ img {
   margin-right: 10px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms var(--timing-function);
 }
 
 .footer-social-link:hover,
@@ -667,4 +672,56 @@ img {
 
 .footer-social-links {
   margin-left: 70px;
+}
+
+/* ====MODAL===== */
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+
+  transition: all 250ms var(--timing-function);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  min-height: 581px;
+  background-color: var(--white-color);
+  border-radius: 4px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--white-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-svg {
+  width: 18px;
+  height: 18px;
+  margin: 0 auto;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.1);
 }
