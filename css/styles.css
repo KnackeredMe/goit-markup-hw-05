@@ -367,7 +367,8 @@ img {
   background-color: var(--accent-color);
 }
 
-.social-links-link:hover .social-link-icon {
+.social-links-link:hover .social-link-icon,
+.social-links-link:focus .social-link-icon {
   fill: var(--white-color);
 }
 
